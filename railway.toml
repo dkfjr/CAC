@@ -1,5 +1,19 @@
 [build]
-builder = "nixpacks"
+builder = "NIXPACKS"
 
-[deploy]
-startCommand = "cd lotto_backend && python -m pip install -r requirements.txt && uvicorn main:app --host 0.0.0.0 --port $PORT"
+[nixpacks]
+nixpacksPlan = '''
+{
+  "phases": {
+    "setup": {
+      "nixPkgs": ["python39"]
+    },
+    "install": {
+      "cmds": ["cd lotto_backend && pip install -r requirements.txt"]
+    }
+  },
+  "start": {
+    "cmd": "cd lotto_backend && uvicorn main:app --host 0.0.0.0 --port $PORT"
+  }
+}
+'''
