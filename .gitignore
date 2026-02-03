@@ -1,0 +1,5 @@
+lotto_backend/venv/
+lotto_backend/__pycache__/
+lotto_backend/*.pyc
+lotto_backend/lotto.db
+lotto_backend/.env
